@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1> Cambiar datos del Evento</h1>
+
+		<form th:action="@{/eventos/editar/{id}(id=${evento.idEvento})}" th:object="${evento}" method="post">
+		<p><input type="text" name="nombre" th:value="${evento.nombre}"></p>Nombre
+		<p><input type="text" th:field="*{descripcion}"></p>Descripcion
+		<p><input type="date" th:field="*{fecha}"></p>Fecha
+		<p><input type="text" th:field="*{duracion}"></p>Duración
+		<p><input type="text" th:field="*{direccion}"></p>Dirección
+		<p><input type="text" th:field="*{estado}"></p>Estado
+		<p><input type="text" th:field="*{destacado}"></p>Destacado
+		<p><input type="text" th:field="*{aforo}"></p>Aforo
+		<p><input type="text" th:field="*{asistencia}"></p>Asistencia
+	    <p><input type="text" th:field="*{precio}"></p>Precio
+		<p><input type="submit" value="Enviar"></p>
+		
+	</form>
+</body>
+</html>

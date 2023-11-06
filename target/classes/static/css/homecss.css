@@ -1,0 +1,67 @@
+a {
+    text-decoration: none;
+}
+
+.barnav{
+    height: 60px;
+}
+
+nav ul li{
+    display: inline-block;
+    line-height: 60px;
+    margin: 2px 2px;
+}
+nav ul li a{
+    font-size: 15px;
+    padding: 7px 13px;
+    text-decoration: upperCase;
+    border: 1px solid blue;
+    font-family: Arial, sans-serif;
+}
+li a.active, li a:hover{
+    background-color: lightblue;
+}
+
+#nuevoevento{
+    border: 2px solid #8DD9F3;
+    padding: 5px;
+    font-family: Arial, sans-serif;
+    text-decoration: none;
+}
+
+h2 {
+    color: violet;
+    font-family: Arial, sans-serif;
+}
+
+table {
+    margin-right: 30px;
+}
+
+.tablaencabezado {
+    background-color: #A783EE;
+    color: white;
+}
+
+#tabla1, #tabla3 {
+    border: 1px solid black;
+}
+
+#tabla1 td, #tabla3 td{
+    border: 1px solid black;
+}
+
+#tabla2, #tabla2 td {
+    border: 1px solid blue;
+}
+
+th, td {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    padding: 5px;
+}
+
+#divtablas{
+	margin-top: 10px;
+	display: flex; 
+}
