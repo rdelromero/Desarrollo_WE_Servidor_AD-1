@@ -5,6 +5,6 @@ import java.util.List;
 import eventos.modelo.javabean.Tipo;
 
 public interface TipoDao {
-	Tipo findById(int idTipo);
-	List<Tipo> findAll();
+	public abstract Tipo devolverTipoPorId(int idTipo);
+	public abstract List<Tipo> devolverTodosTipos();
 }

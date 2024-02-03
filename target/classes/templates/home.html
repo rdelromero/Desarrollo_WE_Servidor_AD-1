@@ -1,57 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="/css/homecss.css">
-    <title>Actividad1.-  Eventos</title>
+<meta charset="UTF-8">
+<title>Desarrollo web en ES: AD-1</title>
 </head>
 <body>
-    <nav class="barnav">
-        <ul>
-            <li><a href="hometipo.html">Tipos</a></li>
-            <li><a href="eventos.html">Eventos</a></li>
-            <li><a href="usuarios.html">Usuarios</a></li>
-            <li><a href="home.html">Eventos/tipo</a></li>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="registro.html">Registro</a></li>
-            <li><a href="salir.html">Salir</a></li>
-        </ul> 
-    </nav>
-	<h2>Listado de Eventos Activos</h2>
-	<a id="nuevoevento" th:href="@{/eventos/alta}">Nuevo Evento</a>
-	<br><br>
-	
-    <div id="divtablas">
-	    <table id="tabla1">
-		    <tr class="tablaencabezado">
-			    <th>Id</th>
-			    <th>Nombre</th>
-			    <th>Precio (€)</th>		
-		    </tr>
-		    <tr th:each="evento : ${eventos}">
-			    <td th:text="${evento.idEvento}"></td>
-			    <td th:text="${evento.nombre}"></td>
-			    <td th:text="${evento.precio}"></td>
-		    </tr>
-	    </table>
-	    <table id="tabla2">
-		    <tr class="tablaencabezado">	
-			    <th colspan="3">Opciones</th>	
-		    </tr>
-		    <tr th:each="evento : ${eventos}">
-			    <td><a th:href="@{/eventos/editar/{id}(id=${evento.idEvento})}">Editar</a></td>
-			    <td><a th:href="@{/eventos/eliminar/{id}(id=${evento.idEvento})}">Eliminar</a></td>
-			    <td><a th:href="@{/eventos/cancelar/{id}(id=${evento.idEvento})}">Cancelar</a></td>
-		    </tr>
-	    </table>
-		<table id="tabla3">
-		    <tr class="tablaencabezado">	
-			    <th>Detalle</th>	
-		    </tr>
-		    <tr th:each="evento : ${eventos}">
-			    <td><a th:href="@{/eventos/detalle/{id}(id=${evento.idEvento})}">Detalle</a></td>
-		    </tr>
-	    </table>
-    </div>		
+    <h2>Desarrollo web en entorno servidor: AD-1</h2>
+    <span th:text="${mensaje}"></span><br>
+    <a href="/tipos">Tipos</a><br>
+    <a href="/eventos">Eventos</a><br>
 </body>
-</html> 
+</html>

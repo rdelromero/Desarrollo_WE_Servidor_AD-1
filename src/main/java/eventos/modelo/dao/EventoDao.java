@@ -1,12 +1,14 @@
 package eventos.modelo.dao;
+
 import java.util.List;
+
 import eventos.modelo.javabean.Evento;
 
 public interface EventoDao {
-	Evento findById(int idEvento);
-	List<Evento> findAll();
-	int insert(Evento evento);
-	int delete(int idEvento);
-	int updateOne(Evento evento);
-	int cancelarEvento(int idEvento);
+	public abstract Evento devolverEventoPorId(int idEvento);
+	public abstract List<Evento> devolverTodosEventos();
+	public abstract int crearEvento(Evento evento);
+	public abstract int actualizarEvento(Evento cliente);
+	public abstract int borrarEventoPorId(int idEvento);
+	public abstract int cancelarEventoPorId(int idEvento);	
 }

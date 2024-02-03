@@ -1,8 +1,8 @@
 Desarrollo web en entorno servidor
 
-AD-1. Listado de eventos con opciones de alta, cancelar, ver detalle y eliminar
+# AD-1. Listado de eventos con opciones CRUD (alta, ver detalle, editar, eliminar) y cancelar
 
-Enunciado:
+## Enunciado:
 
 Una empresa se dedica a montar eventos. Cada evento es de un tipo distinto. Los tipos de evento son: concierto, despedida, cumpleaños, boda…, y nos interesa un código que identifique cada evento junto con su descripción. 
 A un evento se inscriben clientes, de los que debemos guardar el esquema SQL. Recuerda que un cliente puede apuntarse a más de un evento. 
@@ -10,14 +10,12 @@ De aquí en adelante, podremos incorporar más tablas para completar la aplicaci
 
 El modelo de datos es el siguiente: 
 
+![imagen](/Desarrollo_WE_Servidor_AD-1_imagen1.png)
 
-![foto1](https://github.com/laurabeltranp/2.DAW_DesarrolloEntornoServidor/assets/121167533/34d5dd25-da40-4575-9085-b9a8dff7cd7f)
-
-
-Desarrollo
+## Desarrollo
 
 La idea es que construyamos una aplicación con SpringBoot y Thymeleaf sin acceso a datos, es decir con listas,  y cuya página principal tenga esta imagen (index.html). 
-![fot2](https://github.com/laurabeltranp/2.DAW_DesarrolloEntornoServidor/assets/121167533/242fd26a-db6f-449b-abe9-434a8da45efb)
+![imagen](/Desarrollo_WE_Servidor_AD-1_imagen2.png)
 
 Vamos a implementar el controlador EventosController y HomeController.
 - Las páginas HTML (con thymeleaf) necesarias para las tareas definidas a continuación.
