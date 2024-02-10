@@ -33,11 +33,11 @@ Casos de uso(url general “/eventos”):
 - “/activos” -> Sacar el listado de todos los eventos activos y opción detalle
 - “/destacados” -> Sacar el listado de todos los eventos destacados y opción detalle
 - “/detalle/{id}” -> con @Get mostrar un html con los datos del evento, y un formulario con la cantidad(máximo 10 por reserva) y un botón que ponga “reservar”. Siempre y cuando la cantidad de plazas que quiere no superen el aforo máximo.
-o “/reservar/{id} “ -> dar de alta la reserva de ese evento. Posibilidades:
-- Todo correcto, mensaje reserva realizada.
-- Se supera el aforo máximo. No permitir la reserva e informar.
-- Ya tenía una reserva a este evento con 10 reservas: informar
-- No permitir cantidad de entradas en una reserva superior a 10
+- “/reservar/{id} “ -> dar de alta la reserva de ese evento. Posibilidades:
+* Todo correcto, mensaje reserva realizada.
+* Se supera el aforo máximo. No permitir la reserva e informar.
+* Ya tenía una reserva a este evento con 10 reservas: informar
+* No permitir cantidad de entradas en una reserva superior a 10
 
 ![imagen](/Desarrollo_WE_Servidor_AD-3_imagen3.png)
 
