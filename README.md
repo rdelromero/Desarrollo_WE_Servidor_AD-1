@@ -1,36 +1,51 @@
 Desarrollo web en entorno servidor
 
-# AD-1. Listado de eventos con opciones CRUD (alta, ver detalle, editar, eliminar) y cancelar
+# AD-1. AD-3. Trabajo en Equipo. Spring Boot Security, Jpa Eventos
 
-## Enunciado:
+## Enunciado
 
-Una empresa se dedica a montar eventos. Cada evento es de un tipo distinto. Los tipos de evento son: concierto, despedida, cumpleaños, boda…, y nos interesa un código que identifique cada evento junto con su descripción. 
-A un evento se inscriben clientes, de los que debemos guardar el esquema SQL. Recuerda que un cliente puede apuntarse a más de un evento. 
-De aquí en adelante, podremos incorporar más tablas para completar la aplicación, pero, de momento, con estas tenemos bastantes.
+ROL CLIENTE CON SPRING BOOT MVS, JPA, SECURITY
 
-El modelo de datos es el siguiente: 
+Una empresa se dedica a montar eventos.
+Cada evento es de un tipo distinto. Los tipos de evento son: concierto, despedida, cumpleaños, boda, ….., y nos interesa un código que lo identifique y su descripción.
+A un evento se inscriben clientes, de los que debemos guardar los datos que figuran en la base de datos de usuario.
 
-![imagen](/Desarrollo_WE_Servidor_AD-1_imagen1.png)
+![imagen](/Desarrollo_WE_Servidor_AD-3_imagen1.png)
 
-## Desarrollo
+Un CLIENTE puede apuntarse a más de un evento, y de cada evento puede hacer hasta 10 reservas, en la misma o en distintas reservas(controlar).
 
-La idea es que construyamos una aplicación con SpringBoot y Thymeleaf sin acceso a datos, es decir con listas,  y cuya página principal tenga esta imagen (index.html). 
-![imagen](/Desarrollo_WE_Servidor_AD-1_imagen2.png)
+Permitimos la entrada a la aplicación de usuarios anónimos, pueden navegar, seleccionar por tipos , por destacados y activos y ver detalle de un evento, y nada más.
+Un cliente cuando se registra le damos el rol “Cliente”.
+Cuando un cliente registrado entra a la aplicación con la url “/clientes/**” ve esta pantalla, con este menú y con la lista de eventos destacados
 
-Vamos a implementar el controlador EventosController y HomeController.
-- Las páginas HTML (con thymeleaf) necesarias para las tareas definidas a continuación.
-- La clase de Bean 'Evento' y 'Tipo', a partir de las tablas que tienes en este enunciado.
-    Ojo, un Evento tiene una variable Tipo tipo, no un int idTipo.
+![imagen](/Desarrollo_WE_Servidor_AD-3_imagen2.png)
 
-- El interface TipoDao con dos métodos, findAll() y findById(), y la clase que implementa este interface.
-- El interface llamado EventoDao de la clase 'Evento' con los métodos necesarios.
-- Una clase EventoDaoImpl, que contiene una lista de eventos con su tipo y la implementación de los métodos del interface.
- 
-Del controlador llamado HomeController tratamos las siguientes opciones:
-- “/” ->  Sacar el listado de la imagen superior.
-- Del controlador llamado EventoController tratamos las siguientes opciones:
-- “/eventos/alta: -> Mostrar un formulario con los datos del evento, poner el estado del evento como ‘ACTIVO’ y, si quieres destacarlo, poner una ‘s’ en su columna. Volver al listado de activos.
-- “/eventos/editar/{id} “ -> Mostrar en un HTML con los datos del evento.
-- “/eventos/eliminar/{id} “ ->  Borrarlo de la clase que contiene los eventos y volver al listado de activos.
-- “/eventos/cancelar/{id}“ ->  Poner el estado del evento como "CANCELADO", y volver al listado de activos. Comprobar con un "syso" por consola que este evento tiene el estado a "CANCELADO". 
-De momento no nos preocupamos de quién entra en la aplicación. Vamos a suponer que entra a la aplicación un administrador que tiene permisos para probar todas las tareas que se proponen.
+DESARROLLO DE LA ACTIVIDAD. ROL CLIENTE
+
+• HomeController: “/”
+Un cliente entra en este Controlado, y con esta url, tanto como invitado, como cuando se loga(formulario usuario/password) e inicia la sesión (guardar el usuario logado en un atributo de sesión). En este caso le mandamos a la página principal en donde verá la lista de Eventos activos y destacados y la opción de ver detalle.
+
+También podrá ver un desplegable de los tipos de eventos para poder filtrar. Y un botón añadido de Eventos para obtener todos los eventos activos o los destacados.
+
+Y un botón de Mis reservas. Y el botón de cerrar sesión.
+
+Casos de uso(url general “/eventos”):
+- “/activos” -> Sacar el listado de todos los eventos activos y opción detalle
+- “/destacados” -> Sacar el listado de todos los eventos destacados y opción detalle
+- “/detalle/{id}” -> con @Get mostrar un html con los datos del evento, y un formulario con la cantidad(máximo 10 por reserva) y un botón que ponga “reservar”. Siempre y cuando la cantidad de plazas que quiere no superen el aforo máximo.
+o “/reservar/{id} “ -> dar de alta la reserva de ese evento. Posibilidades:
+- Todo correcto, mensaje reserva realizada.
+- Se supera el aforo máximo. No permitir la reserva e informar.
+- Ya tenía una reserva a este evento con 10 reservas: informar
+- No permitir cantidad de entradas en una reserva superior a 10
+
+![imagen](/Desarrollo_WE_Servidor_AD-3_imagen3.png)
+
+Nota: falta el Precio del evento en esta imagen
+La imagen del evento poner una aunque siempre sea la misma( o ninguna)
+
+actualizar
+- /misReservas “ -> listado con las reservas activas(fecha de inicio > que la actual). Con un botón de cancelar.
+- /cancelar/{id} “ -> Borrar la reserva en la Base de Datos, y volver al listado de mis reservas.
+
+![imagen](/Desarrollo_WE_Servidor_AD-3_imagen4.png)
