@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+body {
+    font-family: 'Arial', sans-serif;
+}
+table {
+    border-collapse: collapse;
+}
+tr {
+    border: 1px solid;
+}
+</style>
+</head>
+<body>
+   <h2>Lectura del evento</h2>
+   <table>
+      <tr>
+         <td>Id</td><td><span th:text="${evento.idEvento}"></span></td>
+      </tr>
+      <tr>
+         <td>Nombre:</td><td><span th:text="${evento.nombre}"></span></td>
+      </tr>
+      <tr>
+         <td>Descripción:</td><td><span th:text="${evento.descripcion}"></span></td>
+      </tr>
+      <tr>
+         <td>Duración (min):</td><td><span th:text="${evento.duracion}"></span></td>
+      </tr>
+      <tr>
+         <td>Fecha inicio:</td><td><span th:text="${#dates.format(evento.fechaInicio, 'dd-MM-yyyy')}"></span></td>
+      </tr>
+      <tr>
+         <td>Dirección:</td><td><span th:text="${evento.direccion}"></span></td>
+      </tr>
+      <tr>
+         <td>Estado:</td><td th:text="${evento.estado}"></td>
+      </tr>
+      <tr>
+         <td>Destacado:</td><td th:text="${evento.destacado}"></td>
+      </tr>
+      <tr>
+         <td>Aforo máximo:</td><td th:text="${evento.aforoMaximo}"></td>
+      </tr>
+      <tr>
+         <td>Mínimo asistencia:</td><td th:text="${evento.minimoAsistencia}"></td>
+      </tr>
+      <tr>
+         <td>Precio:</td><td th:text="${evento.precio}"></td>
+      </tr>
+      <tr>
+         <td>Tipo:</td><td th:text="${evento.tipo}"></td>
+      </tr>
+   </table>
+   <br>
+   <a th:href="@{/eventos}">Volver a eventos</a>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Desarrollo web en ES: AD-1</title>
+</head>
+<body>
+    <h2>Desarrollo web en entorno servidor: AD-1</h2>
+    <span th:text="${mensaje}"></span><br>
+    <!-- Ojo con poner
+    <a href="/tipos">Tipos</a><br>, sale lo mismo en este contexto pero no en otros -->
+    <a th:href="@{/tipos}">Tipos</a><br>
+    <a th:href="@{/eventos}">Eventos</a><br>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+body {
+    font-family: 'Arial', sans-serif;
+}
+table {
+    border-collapse: collapse;
+    }
+tr {
+    border: 1px solid;
+}
+          
+</style>
+</head>
+<body>
+    <h2>Tipos</h2>
+    <h3>Lista con todos los tipos</h3>
+    <table>
+		<tr>
+			<th>Id</th>
+			<th>Nombre</th>
+			<th>Descripción</th>
+		</tr>
+		<tr th:each="tipo: ${listaTodosTipos}">
+			<td th:text = ${tipo.idTipo}></td>
+			<td th:text = ${tipo.nombre}></td>
+			<td th:text = ${tipo.descripcion}></td>
+		</tr>
+	</table>
+</body>
+</html>
